@@ -1,0 +1,10 @@
+<div class="shadow">
+  <%= link_to(lecture, class: "text-muted") do %>
+  <div class="card mt-5">
+    <div class="card-body">
+      <h5 class="card-title"><%= lecture.title %></h5>
+      <p class="card-text"><%= lecture.content %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
