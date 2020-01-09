@@ -1,28 +1,31 @@
-<div id="lectures-index" class="container my-5">
+<div id="lectures-show" class="container my-5">
   <div class="card mt-5">
-    <h5 class="card-header"><%= @lecture.title %></h5>
+    <h5 class="card-header">
+      <%= @lecture.title %>
+      <%= link_to "レビューする", "#", class: "btn btn-secondary float-right shadow" %>
+    </h5>
     <div class="card-body">
       <div class="row">
         <div class="col-8">
-          <strong>概要</strong>
+          <p class="font-weight-bold">概要</p>
           <p><%= @lecture.content %></p>
         </div>
         <div class="col-4">
-          <strong>評価</strong>
+          <p class="font-weight-bold">評価</p>
           <p>3.5 / 5.0</p>
         </div>
 
-        <div class="col-12">
-          <strong>授業毎の内容</strong>
+        <div class="col-12 mt-4">
+          <p class="font-weight-bold">授業毎の内容</p>
           <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
               <p>1.</p>
               <p>2.</p>
               <p>3.</p>
               <p>4.</p>
               <p>5.</p>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
               <p>6.</p>
               <p>7.</p>
               <p>8.</p>
@@ -32,8 +35,8 @@
           </div>
         </div>
 
-        <div class="col-6">
-          <strong>良いところ</strong>
+        <div class="col-sm-6 mt-4">
+          <p class="font-weight-bold">良いところ</p>
           <ul>
             <li>コメントコメントコメントコメント</li>
             <li>コメントコメントコメントコメント</li>
@@ -41,8 +44,8 @@
             <li>コメントコメントコメントコメント</li>
           </ul>
         </div>
-        <div class="col-6">
-          <strong>悪いところ</strong>
+        <div class="col-sm-6 mt-4">
+          <p class="font-weight-bold">悪いところ</p>
           <ul>
             <li>コメントコメントコメントコメント</li>
             <li>コメントコメントコメントコメント</li>
