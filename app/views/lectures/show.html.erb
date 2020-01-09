@@ -2,7 +2,7 @@
   <div class="card mt-5">
     <h5 class="card-header">
       <%= @lecture.title %>
-      <%= link_to "レビューする", "#", class: "btn btn-secondary float-right shadow" %>
+      <%= link_to "レビューする", new_review_path(lecture_id: @lecture.id), class: "btn btn-secondary float-right shadow" %>
     </h5>
     <div class="card-body">
       <div class="row">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-4">
           <p class="font-weight-bold">評価</p>
-          <p>3.5 / 5.0</p>
+          <p><%= @average_rate %> / 5.0</p>
         </div>
 
         <div class="col-12 mt-4">
@@ -38,19 +38,17 @@
         <div class="col-sm-6 mt-4">
           <p class="font-weight-bold">良いところ</p>
           <ul>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
+          <% @lecture.reviews.newest.limit(5).each do |review| %>
+            <li><%= review.good_point %></li>
+          <% end %>
           </ul>
         </div>
         <div class="col-sm-6 mt-4">
           <p class="font-weight-bold">悪いところ</p>
           <ul>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
-            <li>コメントコメントコメントコメント</li>
+          <% @lecture.reviews.newest.limit(5).each do |review| %>
+            <li><%= review.bad_point %></li>
+          <% end %>
           </ul>
         </div>
       <div>

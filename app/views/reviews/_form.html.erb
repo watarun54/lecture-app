@@ -1,0 +1,34 @@
+<%= form_for(review, class: "form-inline") do |f| %>
+  <div class="form-group row">
+    <%= f.label "授業名", class: "col-sm-3 col-form-label font-weight-bold" %>
+    <div class="col-sm-9">
+      <%= @lecture.title %>
+      <%= hidden_field_tag :lecture_id, @lecture.id %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :rate, class: "col-sm-3 col-form-label font-weight-bold" %>
+    <div class="col-sm-9">
+      <%= f.select :rate, options_for_select(REVIEW_RATE_HASH.invert, REVIEW_RATE_NORMAL), {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :good_point, class: "col-sm-3 col-form-label font-weight-bold" %>
+    <div class="col-sm-9">
+      <%= f.text_area :good_point, class: "form-control", placeholder: "例）ホゲホゲ" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :bad_point, class: "col-sm-3 col-form-label font-weight-bold" %>
+    <div class="col-sm-9">
+      <%= f.text_area :bad_point, class: "form-control", placeholder: "例）ホゲホゲ" %>
+    </div>
+  </div>
+
+  <div class="actions mt-4">
+    <%= f.submit "送信", class: "btn btn-secondary btn-lg shadow" %>
+  </div>
+<% end %>
