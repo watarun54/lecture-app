@@ -7,7 +7,7 @@ class LecturesController < ApplicationController
 
   def show
     @reviews = @lecture.reviews
-    @average_rate = @reviews.present? ? @reviews.pluck(:rate).sum / @reviews.size : "None"
+    @average_rate = @reviews.present? ? (@reviews.pluck(:rate).sum / @reviews.size.to_f).round(1) : "None"
   end
 
   def search
