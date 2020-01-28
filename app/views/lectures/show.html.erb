@@ -61,7 +61,7 @@
 
   <div class="row mt-5">
     <p class="col-12 font-weight-bold ml-3">関連科目</p>
-    <% Lecture.limit(3).each do |lecture| %>
+    <% Lecture.lectures_related_to(@lecture).each do |lecture| %>
       <div class="col-sm-6 col-md-4 mb-5">
         <%= render "lecture", lecture: lecture %>
       </div>
