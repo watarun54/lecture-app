@@ -3,7 +3,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><%= lecture.title %></h5>
-      <p class="card-text"><%= lecture.content.truncate(50, separator: ' ') %></p>
+      <p class="card-text"><%= lecture.content.truncate(100) %></p>
     </div>
   </div>
   <% end %>
