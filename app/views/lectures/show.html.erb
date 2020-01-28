@@ -1,4 +1,4 @@
-<div id="lectures-show" class="container my-5">
+<div id="lectures-show" class="container my-4">
   <div class="row">
     <div class="col-12">
       <div class="card mt-5">
@@ -15,7 +15,9 @@
           </div>
           <div class="col-sm-4">
             <p class="font-weight-bold">評価</p>
-            <p class="ave-rate"><%= @average_rate %> / 5.0</p>
+            <p class="score"><%= average_rate(@reviews) %> / 5.0</p>
+            <p class="font-weight-bold">レビュー数</p>
+            <p class="score"><%= @reviews.size %></p>
           </div>
 
           <div class="col-12 mt-4">
@@ -62,7 +64,7 @@
 
   <div class="row mt-5">
     <p class="col-12 font-weight-bold ml-3">関連科目</p>
-    <% Lecture.lectures_related_to(@lecture).each do |lecture| %>
+    <% Lecture.lectures_related_to(@lecture).includes(:reviews).each do |lecture| %>
       <div class="col-sm-6 col-md-4 mb-5">
         <%= render "lecture", lecture: lecture %>
       </div>

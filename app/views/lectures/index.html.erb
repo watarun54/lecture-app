@@ -31,7 +31,7 @@
   </div>
 
   <div class="row">
-    <% @lectures.each do |lecture| %>
+    <% @lectures.includes(:reviews).each do |lecture| %>
     <div class="col-sm-6 col-md-4 mb-5">
       <%= render "lecture", lecture: lecture %>
     </div>
