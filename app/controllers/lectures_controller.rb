@@ -10,6 +10,17 @@ class LecturesController < ApplicationController
   end
 
   def search
+    @search_params = params[:search]
+    @query = @search_params.split(/[[:blank:]]+/).reject(&:blank?)
+
+    if @query.present?
+      @lectures = Lecture.search(@query)
+    else
+      return redirect_to root_path
+    end
+
+    @lectures = @lectures.page(params[:page]).per(LECTURES_PER)
+    render :index
   end
 
   private
