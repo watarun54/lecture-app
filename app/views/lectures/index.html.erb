@@ -36,5 +36,8 @@
       <%= render "lecture", lecture: lecture %>
     </div>
     <% end %>
+    <div class="col-12">
+      <%= paginate @lectures %>
+    </div>
   </div>
 </div>

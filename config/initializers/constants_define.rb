@@ -11,3 +11,5 @@ REVIEW_RATE_HASH = {
   2  => '悪い',
   1  => '非常に悪い',
 }
+
+LECTURES_PER = 30

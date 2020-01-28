@@ -2,7 +2,7 @@ class LecturesController < ApplicationController
   before_action :set_lecture, only: [:show]
 
   def index
-    @lectures = Lecture.all
+    @lectures = Lecture.all.page(params[:page]).per(LECTURES_PER)
   end
 
   def show
