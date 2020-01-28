@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_062140) do
+ActiveRecord::Schema.define(version: 2020_01_28_034703) do
 
   create_table "lectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "resemblances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lecture_id"
+    t.integer "r_id"
+    t.decimal "degree", precision: 20, scale: 19
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lecture_id"], name: "index_resemblances_on_lecture_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,5 +38,6 @@ ActiveRecord::Schema.define(version: 2020_01_09_062140) do
     t.index ["lecture_id"], name: "index_reviews_on_lecture_id"
   end
 
+  add_foreign_key "resemblances", "lectures"
   add_foreign_key "reviews", "lectures"
 end
