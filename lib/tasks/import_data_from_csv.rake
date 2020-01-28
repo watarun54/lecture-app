@@ -6,7 +6,7 @@ namespace :import_data_from_csv do
     [:lecture, :resemblance].each do |klass_name|
       klass = "#{klass_name.to_s.classify}".safe_constantize
       puts "data loading for #{klass}"
-      klass.delete_all
+      klass.destroy_all
       CSV.open("#{Rails.root}/db/masters/#{klass_name.to_s.pluralize}.csv",
         {headers: true, header_converters: :downcase}).each do |row|
           attrs = row.to_hash
