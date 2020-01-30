@@ -16,17 +16,27 @@
   </div>
 
   <div class="card my-5">
-    <h5 class="card-header">評価の高い授業</h5>
+    <h5 class="card-header">いろんなランキング</h5>
     <div class="card-body">
       <div class="card-group">
         <div class="card border-0">
           <div class="card-body">
-            <p class="font-weight-bold">授業別</p>
+            <p class="font-weight-bold">評価ランキング</p>
+            <ol>
+            <% @lectures_by_rate.first(5).each do |lec_arr| %>
+              <li>位【 評価 <%= lec_arr[1] %> / 5.0 】 <%= link_to lec_arr[0].title, lec_arr[0] %></li>
+            <% end %>
+            </ol>
           </div>
         </div>
         <div class="card border-0">
           <div class="card-body">
-            <p class="font-weight-bold">講師別</p>
+            <p class="font-weight-bold">レビュー数ランキング</p>
+            <ol>
+            <% @lectures_by_reviews.first(5).each do |lec_arr| %>
+              <li>位【 レビュー数 <%= lec_arr[2] %> 】 <%= link_to lec_arr[0].title, lec_arr[0] %></li>
+            <% end %>
+            </ol>
           </div>
         </div>
       </div>
