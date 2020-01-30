@@ -24,6 +24,9 @@ class LecturesController < ApplicationController
     end
 
     @lectures = @lectures.page(params[:page]).per(LECTURES_PER)
+    @result_count = @lectures.total_count
+
+    @lectures_by_rate, @lectures_by_reviews = rank_data
     render :index
   end
 
