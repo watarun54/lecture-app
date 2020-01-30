@@ -7,7 +7,12 @@
 }
 
 #lectures-show {
-  h5.main-title, p.score {
+  h5.main-title {
     font-size: 30px;
+  }
+
+  p.score {
+    font-size: 30px;
+    margin-left: 20px;
   }
 }

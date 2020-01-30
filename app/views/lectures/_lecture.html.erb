@@ -3,8 +3,8 @@
   <div class="card">
     <div class="card-body">
       <div class="mb-2">
-        <span class="badge badge-secondary">評価：<%= average_rate(lecture.reviews) %></span>
-        <span class="badge badge-secondary">レビュー数：<%= lecture.reviews.size %></span>
+        <span class="badge badge-success">評価：<%= average_rate(lecture.reviews) %></span>
+        <span class="badge badge-info">レビュー数：<%= lecture.reviews.size %></span>
       </div>
       <h5 class="card-title"><%= lecture.title %></h5>
       <p class="card-text"><%= lecture.content.truncate(100) %></p>

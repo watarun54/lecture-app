@@ -15,9 +15,9 @@
           </div>
           <div class="col-sm-4">
             <p class="font-weight-bold">評価</p>
-            <p class="score"><%= average_rate(@reviews) %> / 5.0</p>
+            <p class="score"><span class="badge badge-success"><%= average_rate(@reviews) %> / 5.0</span></p>
             <p class="font-weight-bold">レビュー数</p>
-            <p class="score"><%= @reviews.size %></p>
+            <p class="score"><span class="badge badge-info"><%= @reviews.size %></span></p>
           </div>
 
           <div class="col-12 mt-4">
